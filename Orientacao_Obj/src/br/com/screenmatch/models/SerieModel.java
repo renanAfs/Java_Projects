@@ -1,6 +1,8 @@
 package br.com.screenmatch.models;
 
-public class SerieModel extends TituloModel {
+import br.com.screenmatch.calculos.Classificacao;
+
+public class SerieModel extends TituloModel implements Classificacao{
     private int temporadas;
     private int epsPorTemp;
     private boolean status;
@@ -43,4 +45,11 @@ public class SerieModel extends TituloModel {
     public int getDuracaoEmMinutos() {
         return temporadas * epsPorTemp * minutosPorEpisodio;
     }
+
+
+    @Override
+    public int getClassificacao() {
+        return (int) getMediaAvaliacoes() /2;
+    }
 }
+

@@ -15,6 +15,6 @@ public class FilmeModel extends TituloModel implements Classificacao {
 
     @Override
     public int getClassificacao() {
-        return 0;
+        return (int) getMediaAvaliacoes() /2;
     }
 }

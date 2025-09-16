@@ -1,4 +1,6 @@
 import br.com.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.screenmatch.calculos.FiltroRecomendacao;
+import br.com.screenmatch.models.EpisodioModel;
 import br.com.screenmatch.models.FilmeModel;
 import br.com.screenmatch.models.SerieModel;
 
@@ -46,5 +48,17 @@ public class Main {
         System.out.println("Tempo total para assistir essa lista: " + calcTempo.getTempoTotal());
         System.out.println("Lista detalhada:");
         System.out.println(calcTempo.getItemName() + "; Tipo: " + calcTempo.getItemType() + "; Duração: " + calcTempo.getItemTime());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        System.out.println("Nome: " + filmeStarWarsTerceiro.getNome());
+        filtro.filtra(filmeStarWarsTerceiro);
+
+        EpisodioModel episodio = new EpisodioModel();
+        episodio.setNome("Piloto");
+        episodio.setNumero(1);
+        episodio.setSerie(serieDark);
+        episodio.setTotalViews(300);
+        System.out.println("Nome: " + episodio.getNome() + " da série " + episodio.getSerie().getNome());
+        filtro.filtra(episodio);
     }
 }
